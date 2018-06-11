@@ -1,0 +1,31 @@
+﻿@model Calculation
+@{
+    
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts{ 
+<script src="~/js/question.min.js" asp-append-version="true"></script>
+}
+
+<form action='@Url.Action("Answer")' method="post" >
+    <div class="row">
+        <div class="col-md-12">
+            <span>Pitanje br. @Model.PageNumber</span>
+            <span>Rezultat @Model.CurrentScore od 100</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <span>@Model.NumberA</span>
+                <span>X</span>
+                <span>@Model.NumberB</span>
+                <span>=</span>
+                <input class="input-sm" type="number" id="Answer" name="Answer" tabindex="0" autocomplete="off" autofocus="on" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@Html.Partial("_NumericPad")
